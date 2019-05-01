@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from colorama import Style, Back, Fore
 from urllib.request import urlopen
 from urllib.error import HTTPError
+from urllib.parse import quote
 
 
 def scraper(url):
@@ -24,7 +25,6 @@ def scraper(url):
 
 
 for day in scraper(
-        "https://sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%B2%D0%B8%D0%BD%D0%BD%D0%B8%D1%86%D0%B0/2019-05-01"
-    ):
+        'https://sinoptik.ua/' + quote("погода-" + input("В каком городе вы хотите узнать погоду?\n"))  ):
     print(Back.LIGHTBLACK_EX)
     print(Fore.GREEN, day)
